@@ -18,14 +18,10 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler"
+  spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "simplecov"
   spec.add_development_dependency "sqlite3-ruby"
-  spec.add_development_dependency "database_cleaner"
-  spec.add_development_dependency "coveralls"
 
-  spec.add_runtime_dependency "rake"
   spec.add_runtime_dependency "rubyzip"
   spec.add_runtime_dependency "activerecord"
 end
