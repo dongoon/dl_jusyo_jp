@@ -4,7 +4,7 @@ module DlJusyoJp
     require 'csv'
 
     def self.execute
-      CSV.foreach(Download.csv.path, encoding: "Shift_JIS:UTF-8", write_headers: false).each_slice(chunk_size) do |rows|
+      CSV.foreach(Download.csv.path, encoding: "CP932:UTF-8", write_headers: false).each_slice(chunk_size) do |rows|
         insert = "INSERT INTO #{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE} VALUES "
         values = rows.map do |row|
           next unless row[0].match(/^\d+$/) # skip header

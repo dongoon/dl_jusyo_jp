@@ -15,7 +15,7 @@ describe DlJusyoJp::Download do
 
     it 'should download zip & extract. The extracted file is csv' do
       expect{ subject }.to_not raise_error
-      header = CSV.read(subject.path, encoding: "Shift_JIS:UTF-8").first
+      header = CSV.read(subject.path, encoding: "CP932:UTF-8").first
       expect(header).to be_a Array
       expect(header[0]).to eq '住所CD'
     end
