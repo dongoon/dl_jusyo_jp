@@ -1,5 +1,5 @@
 class CreateJusyos < ActiveRecord::Migration
-  def change
+  def self.up
     create_table "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}" do |t|
       t.string  :address_code,         limit: 9
       t.string  :prefecture_code,      limit: 2
@@ -30,5 +30,9 @@ class CreateJusyos < ActiveRecord::Migration
     add_index "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}", :city_code,       name: 'i_city_code'
     add_index "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}", :town_code,       name: 'i_town_code'
     add_index "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}", :zip_code,        name: 'i_zip_code'
+  end
+
+  def self.down
+    drop_table "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}"
   end
 end
