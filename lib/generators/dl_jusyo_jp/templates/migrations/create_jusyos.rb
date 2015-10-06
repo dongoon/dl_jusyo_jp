@@ -1,6 +1,6 @@
 class CreateJusyos < ActiveRecord::Migration
   def change
-    create_table "#{DlJusyoJp::ADDRESS_MODELS_PREFIX}jusyos" do |t|
+    create_table "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}" do |t|
       t.string  :address_code,         limit: 9
       t.string  :prefecture_code,      limit: 2
       t.string  :city_code,            limit: 5
@@ -25,10 +25,10 @@ class CreateJusyos < ActiveRecord::Migration
       t.string  :new_address_code
     end
 
-    add_index "#{DlJusyoJp::ADDRESS_MODELS_PREFIX}jusyos", :address_code,    name: 'i_address_code'
-    add_index "#{DlJusyoJp::ADDRESS_MODELS_PREFIX}jusyos", :prefecture_code, name: 'i_prefecture_code'
-    add_index "#{DlJusyoJp::ADDRESS_MODELS_PREFIX}jusyos", :city_code,       name: 'i_city_code'
-    add_index "#{DlJusyoJp::ADDRESS_MODELS_PREFIX}jusyos", :town_code,       name: 'i_town_code'
-    add_index "#{DlJusyoJp::ADDRESS_MODELS_PREFIX}jusyos", :zip_code,        name: 'i_zip_code'
+    add_index "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}", :address_code,    name: 'i_address_code'
+    add_index "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}", :prefecture_code, name: 'i_prefecture_code'
+    add_index "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}", :city_code,       name: 'i_city_code'
+    add_index "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}", :town_code,       name: 'i_town_code'
+    add_index "#{DlJusyoJp::ADDRESS_DOWNLOAD_TABLE}", :zip_code,        name: 'i_zip_code'
   end
 end
